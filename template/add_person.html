@@ -1,0 +1,77 @@
+<!-- # add_person.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Person</title>
+    <style>
+        body{
+            background-color:orange;
+        }
+        h1{
+            text-align: center;
+            font-size: 30px;
+            background-color: blue;
+        }
+        button{
+            background-color: blue;
+            color: white;
+            margin-top: 20px;
+            cursor: pointer;
+            width:200px;
+            height:50px;
+            margin-left:100px;
+
+        
+        }
+        label{
+        /* width:80px; */
+        margin-bottom: 10px;
+        display: inline-block;
+        /* width:400px; */
+        }
+        form{
+        height:100px;
+        width:50px;
+        text-align: center;
+        margin: auto;
+        margin-top: 10%;
+        margin-left:40%;
+        }
+        input{
+        height:30px;
+        width:400px;
+        color: gold;
+        background-image: linear-gradient(green,red,orange);
+      }
+      #para1{
+        /* border:2px solid; */
+        margin-top: -310px;
+        font-size: 15px;
+        color: blue;
+        margin-left: 50px;
+        width:200px;
+
+      }
+      .year{
+        margin-top: -150px;
+        margin-left: 40px;
+        width:100px;
+        color: white;
+      }
+    </style>
+</head>
+<body>
+    <h1>User Input Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+        {% if error_message %}
+            <p style="color: red;" id="para1">{{ error_message }}</p>
+        {% endif %}
+        <div class="year">[yyyy-mm-dd]</div>
+    </form>
+</body>
+</html>
